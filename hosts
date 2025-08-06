@@ -1,3 +1,3 @@
 ::1		localhost localhost.my.domain
 127.0.0.1	localhost localhost.my.domain
-10.88.0.1	moho moho.bridge
+10.88.0.1	host host.bridge
