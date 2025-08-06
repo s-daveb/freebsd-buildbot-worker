@@ -1,0 +1,10 @@
+version: '3'
+services:
+  fastfetch:
+    tty: true
+    build: .
+
+networks:
+  default:
+    external:
+      name: podman
