@@ -1,12 +1,11 @@
-FROM freebsd/freebsd-runtime:14.2
+FROM freebsd/freebsd-runtime:14.3
 
 ENV ASSUME_ALWAYS_YES=yes
-ENV PACKAGESITE="https://pkg.freebsd.org/FreeBSD:14:amd64/quarterly/"
+ENV PACKAGESITE="https://pkg.freebsd.org/FreeBSD:14:amd64/latest/"
 
 COPY hosts /etc/hosts
-RUN pkg bootstrap -f && pkg update && (pkg upgrade || true)
 
-ENV ASSUME_ALWAYS_YES=no
+RUN pkg bootstrap -f && pkg update && pkg upgrade -f 
+RUN pkg install fastfetch 
 
-# Update pkg and bootstrap if necessary
-CMD ["/bin/sh" ]
+CMD ["/bin/sh", "-c", "fastfetch; sh -l"]
