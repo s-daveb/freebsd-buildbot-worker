@@ -3,6 +3,7 @@ services:
   fastfetch:
     tty: true
     build: .
+    nohost: true
 
 networks:
   default:
