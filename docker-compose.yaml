@@ -1,9 +1,14 @@
-version: '3'
 services:
-  fastfetch:
+  buildbot-worker:
+    image: localhost/bsdpod-x64-buildbot-worker:0.0.5
     tty: true
+    nohosts: false
     build: .
-    nohost: true
+    pull_policy: build
+    volumes:
+        - /tmp/podman-tmp:/tmp/podman-build
+    network: podman
+
 
 networks:
   default:
